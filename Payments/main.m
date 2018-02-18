@@ -17,13 +17,13 @@ int main(int argc, const char * argv[]) {
         InputCollector* inputCollector = [[InputCollector alloc] init];
         PaymentGateway *paymentGateway = [[PaymentGateway alloc] init];
         
-        NSString* str = [NSString stringWithFormat:@"Thank you for shopping at Acme.com, your total for today is %f Please select your payment method:\n 1: Paypal\n 2: Stripe\n 3: Amazon", random];
+        NSString* str = [NSString stringWithFormat:@"Thank you for shopping at Acme.com, your total for today is %.02f Please select your payment method:\n 1: Paypal\n 2: Stripe\n 3: Amazon", random];
         
         int inputToOutput = [inputCollector inputForPrompt:str];
         
         NSLog(@"You selected payment method #%d", inputToOutput);
-        //-(int)inputForPrompt:(NSString*)promptString
-        [paymentGateway processPaymentAmount:inputToOutput];
+        
+        [paymentGateway processPaymentAmount:random];
     }
     return 0;
 }

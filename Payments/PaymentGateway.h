@@ -8,8 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@class PaymentGateway;
+
+@protocol PaymentDelegate <NSObject>
+
+-(void)processPaymentAmount:(NSInteger)paymentAmount;
+
+@end
+
 @interface PaymentGateway : NSObject
 
+@property (weak) id<PaymentDelegate> delegate;
+
 -(void)processPaymentAmount:(NSInteger)payment;
+
+    
 
 @end
