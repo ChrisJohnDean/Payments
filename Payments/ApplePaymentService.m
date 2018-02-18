@@ -1,17 +1,17 @@
 //
-//  PaypalPaymentService.m
+//  ApplePaymentService.m
 //  Payments
 //
 //  Created by Chris Dean on 2018-02-17.
 //  Copyright © 2018 Chris Dean. All rights reserved.
 //
 
-#import "PaypalPaymentService.h"
+#import "ApplePaymentService.h"
 
-@implementation PaypalPaymentService
+@implementation ApplePaymentService
 
 -(void)processPaymentAmount:(NSInteger)paymentAmount {
-    NSLog(@"Paypal duhhh");
+    NSLog(@"Apple duhhh");
 }
 
 -(BOOL)canProcessPayment {

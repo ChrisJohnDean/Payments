@@ -12,6 +12,7 @@
 #import "PaypalPaymentService.h"
 #import "StripePaymentService.h"
 #import "AmazonPaymentService.h"
+#import "ApplePaymentService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -22,8 +23,9 @@ int main(int argc, const char * argv[]) {
         AmazonPaymentService* amazonPayment;
         StripePaymentService* stripePayment;
         PaypalPaymentService* paypalPayment;
+        ApplePaymentService* applePayment;
         
-        NSString* str = [NSString stringWithFormat:@"Thank you for shopping at Acme.com, your total for today is %.02f Please select your payment method:\n 1: Paypal\n 2: Stripe\n 3: Amazon", random];
+        NSString* str = [NSString stringWithFormat:@"Thank you for shopping at Acme.com, your total for today is %.02f Please select your payment method:\n 1: Paypal\n 2: Stripe\n 3: Amazon\n 4: Apple", random];
         
         int inputToOutput = [inputCollector inputForPrompt:str];
         
@@ -43,6 +45,9 @@ int main(int argc, const char * argv[]) {
                 amazonPayment = [[AmazonPaymentService alloc] init];
                 paymentGateway.paymentDelegate = amazonPayment;
                 break;
+            case 4:
+                applePayment = [[ApplePaymentService alloc] init];
+                paymentGateway.paymentDelegate = applePayment;
             default:
                 break;
         }

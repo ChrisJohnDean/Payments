@@ -12,8 +12,12 @@
 
 -(void)processPaymentAmount:(NSInteger)payment {
     
-    [self.paymentDelegate processPaymentAmount:payment];
-    
+    if([self.paymentDelegate canProcessPayment]) {
+        [self.paymentDelegate processPaymentAmount:payment];
+        NSLog(@"Your payment of %ld was processed", (long)payment);
+    } else {
+        NSLog(@"Sorry, your payment can't be processed because you are too poor");
+    }
 }
 
 @end
